@@ -22,7 +22,7 @@ function AddProduct() {
   // Storing form data localy in state which will later be updated in store
   const [formData, setFormData] = useState({
     name:"",
-    url:"",
+   
     description:"",
     price:"",
     rating:"",
@@ -42,10 +42,11 @@ function AddProduct() {
     dispatch(add_to_unsorted_data(formData))
     setFormData({
       name:"",
-      url:"",
+      image:"",
     description:"",
     price:"",
     rating:"",
+      
     })
     add_item_database_toastify()
   }
@@ -57,7 +58,7 @@ function AddProduct() {
         <div className='addContainer'>
         <p className='heading'>Add New Product</p>
         <input type="text" placeholder='Item Name...' value={formData.name} onChange={(e)=>{setFormData({...formData,name:e.target.value})}}required/>
-        <input type="text" placeholder='Image URL...' value={formData.url} onChange={(e)=>{setFormData({...formData,url:e.target.value})}}required/>
+        <input type="text" placeholder='Image URL...' value={formData.image} onChange={(e)=>{setFormData({...formData,image:e.target.value})}}required/>
         <textarea type="text" placeholder='Item desc...' value={formData.description} onChange={(e)=>{setFormData({...formData,description:e.target.value})}} required></textarea>
         <input type="number" placeholder='Item price...' value={formData.price} onChange={(e)=>{setFormData({...formData,price:e.target.value})}}required />
         <input type="number" placeholder='Item Rating...' max={5} min={0}  value={formData.rating} onChange={(e)=>{setFormData({...formData,rating:e.target.value})}} required/>
